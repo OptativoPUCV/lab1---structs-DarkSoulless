@@ -28,3 +28,46 @@ test.c:91:5: error: implicit declaration of function ‘arrayMaxMin’; did you 
 cc1: all warnings being treated as errors
 Compilation failed
 53d7460
+Sat 18 Mar 2023 09:44:02 PM UTC: 
+ exercises.c | 35 +++++++++++++++++++++++++++++------
+ 1 file changed, 29 insertions(+), 6 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘arrayMaxMin’:
+exercises.c:28:7: error: left-hand operand of comma expression has no effect [-Werror=unused-value]
+   28 |   *max, *min = a[0];
+      |       ^
+exercises.c:33:15: error: statement with no effect [-Werror=unused-value]
+   33 |     else(a[i] < *min){
+      |         ~~~~~~^~~~~~~
+exercises.c:33:22: error: expected ‘;’ before ‘{’ token
+   33 |     else(a[i] < *min){
+      |                      ^
+      |                      ;
+exercises.c: In function ‘crearVector’:
+exercises.c:78:3: error: unknown type name ‘vector’; did you mean ‘Vector’?
+   78 |   vector *vectorA = (vector *) malloc(sizeof(vector));
+      |   ^~~~~~
+      |   Vector
+exercises.c:78:22: error: ‘vector’ undeclared (first use in this function); did you mean ‘vectorA’?
+   78 |   vector *vectorA = (vector *) malloc(sizeof(vector));
+      |                      ^~~~~~
+      |                      vectorA
+exercises.c:78:22: note: each undeclared identifier is reported only once for each function it appears in
+exercises.c:78:30: error: expected expression before ‘)’ token
+   78 |   vector *vectorA = (vector *) malloc(sizeof(vector));
+      |                              ^
+exercises.c:80:10: error: request for member ‘datos’ in something not a structure or union
+   80 |   vectorA->datos=(int *) calloc(n,sizeof(int));
+      |          ^~
+exercises.c:81:14: error: request for member ‘datos’ in something not a structure or union
+   81 |   if (vectorA->datos==NULL) exit(EXIT_FAILURE);
+      |              ^~
+exercises.c:82:10: error: request for member ‘capacidad’ in something not a structure or union
+   82 |   vectorA->capacidad=n;
+      |          ^~
+exercises.c:83:10: error: returning ‘int *’ from a function with incompatible return type ‘Vector *’ [-Werror=incompatible-pointer-types]
+   83 |   return vectorA;
+      |          ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+1e58a04

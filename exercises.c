@@ -24,7 +24,17 @@ Programe la función void arrayMaxMin(int *a, int n, int *max, int *min),
 la cual encuentra el máximo y el mínimo valor del arreglo a y los
 almacena en las variables apuntadas por max y min.
 */
-
+void arrayMaxMin(int *a, int n, int *max, int *min) {
+  *max, *min = a[0];
+  for (int i = 0; i < n; i++){
+    if (a[i] > *max){ 
+      *max = a[i];
+    }
+    else(a[i] < *min){
+      *min = a[i];
+    }
+  }
+}
 
 
 
@@ -43,11 +53,12 @@ typedef struct {
 
 
 Persona* crearPersona(char nombre[], char rut[], int edad) {
-   Persona * p = (Persona *) malloc(sizeof(Persona));
-   //asignar valores de entrada a los campos de p
-
-
-   return p;
+  Persona * p = (Persona *) malloc(sizeof(Persona));
+  //asignar valores de entrada a los campos de p
+  strcpy(p->nombre, nombre); 
+  strcpy(p->rut, rut);
+  p->edad = edad; 
+  return p;
 }
 
 /*
@@ -63,8 +74,13 @@ typedef struct {
    int capacidad; // capacidad del arreglo
 } Vector;
 
-Vector * crearVector(int n) {
-   return NULL;
+Vector * crearVector(int n){
+  vector *vectorA = (vector *) malloc(sizeof(vector));
+  if (vectorA==NULL) exit(EXIT_FAILURE);
+  vectorA->datos=(int *) calloc(n,sizeof(int));
+  if (vectorA->datos==NULL) exit(EXIT_FAILURE);
+  vectorA->capacidad=n;
+  return vectorA;
 }
 
 /*
@@ -73,7 +89,9 @@ Programe la función void asignarValor(Vector * v, int i, int valor),
 la cual asigna el valor a la posición i del vector v.
 */
 void asignarValor(Vector * v, int i, int valor) {
-
+  if (i >= 0 && i < v->capacidad){
+    v->datos[i] = valor;
+  }
 }
 
 /*
@@ -81,8 +99,11 @@ Ejercicio 6.
 Programe la función int obtenerValor(Vector * v, int i), 
 la cual retorna el valor en la posición i del vector v.
 */
-int obtenerValor(Vector * v, int i) {
-   return 0;
+int obtenerValor(Vector * v, int i){
+  if (i>=0 && i< v-> capacidad){
+    return v->datos[i];
+  }
+  return 0;
 }
 
 /*
@@ -91,7 +112,9 @@ Función que suma los vectores `a` y `b` y
 actualiza el vector `c` con el resultado de la suma.
 */
 void sumaV(Vector * a, Vector * b, Vector * c) {
-
+  for (int i = 0; i < a->capacidad; i++) {
+    c->datos[i] = a->datos[i] + b->datos[i];
+  }
 }
 
 /*
