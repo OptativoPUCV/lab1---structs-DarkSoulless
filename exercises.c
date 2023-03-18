@@ -13,7 +13,9 @@ Programe la función void swap(int *a, int *b), la cual
 intercambia los valores de las variables apuntadas por a y b.
 */
 void swap(int *a, int *b) {
-
+  int temp = *a;
+  *a=*b;
+  *b=temp;
 }
 
 /*
@@ -23,8 +25,17 @@ la cual encuentra el máximo y el mínimo valor del arreglo a y los
 almacena en las variables apuntadas por max y min.
 */
 void arrayMaxMin(int *a, int n, int *max, int *min) {
-    
+  *max = *min = a[0];
+  for (int i = 1; i < n; i++){
+    if (a[i] > *max){ 
+      *max = a[i];
+    }
+    else(a[i] < *min){
+      *min = a[i];
+    }
+  }
 }
+
 
 
 /*
