@@ -263,3 +263,15 @@ exercises.c:34:22: error: expected ‘;’ before ‘{’ token
 cc1: all warnings being treated as errors
 Compilation failed
 e4602b4
+Sat 18 Mar 2023 09:49:02 PM UTC: 
+ exercises.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘arrayMaxMin’:
+exercises.c:32:23: error: invalid operands to binary * (have ‘int’ and ‘int *’)
+   32 |     else(a[i] < *min) *min = a[i];
+      |         ~~~~~~~~~~~~~ ^
+      |               |
+      |               int
+Compilation failed
+59a9cb0
