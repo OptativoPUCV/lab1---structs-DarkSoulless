@@ -248,3 +248,18 @@ exercises.c:33:22: error: expected ‘;’ before ‘{’ token
 cc1: all warnings being treated as errors
 Compilation failed
 a05adb3
+Sat 18 Mar 2023 09:47:41 PM UTC: 
+ exercises.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+exercises.c: In function ‘arrayMaxMin’:
+exercises.c:34:15: error: statement with no effect [-Werror=unused-value]
+   34 |     else(a[i] < *min){
+      |         ~~~~~~^~~~~~~
+exercises.c:34:22: error: expected ‘;’ before ‘{’ token
+   34 |     else(a[i] < *min){
+      |                      ^
+      |                      ;
+cc1: all warnings being treated as errors
+Compilation failed
+e4602b4
