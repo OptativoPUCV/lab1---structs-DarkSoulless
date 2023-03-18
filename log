@@ -71,3 +71,162 @@ exercises.c:83:10: error: returning ‘int *’ from a function with incompatibl
 cc1: all warnings being treated as errors
 Compilation failed
 1e58a04
+Sat 18 Mar 2023 09:44:53 PM UTC: 
+ exercises.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘arrayMaxMin’:
+exercises.c:28:7: error: left-hand operand of comma expression has no effect [-Werror=unused-value]
+   28 |   *max, *min = a[0];
+      |       ^
+exercises.c:33:15: error: statement with no effect [-Werror=unused-value]
+   33 |     else(a[i] < *min){
+      |         ~~~~~~^~~~~~~
+exercises.c:33:22: error: expected ‘;’ before ‘{’ token
+   33 |     else(a[i] < *min){
+      |                      ^
+      |                      ;
+exercises.c: At top level:
+exercises.c:91:19: error: unknown type name ‘Vector’; did you mean ‘vector’?
+   91 | void asignarValor(Vector * v, int i, int valor) {
+      |                   ^~~~~~
+      |                   vector
+exercises.c:102:18: error: unknown type name ‘Vector’; did you mean ‘vector’?
+  102 | int obtenerValor(Vector * v, int i){
+      |                  ^~~~~~
+      |                  vector
+exercises.c:114:12: error: unknown type name ‘Vector’; did you mean ‘vector’?
+  114 | void sumaV(Vector * a, Vector * b, Vector * c) {
+      |            ^~~~~~
+      |            vector
+exercises.c:114:24: error: unknown type name ‘Vector’; did you mean ‘vector’?
+  114 | void sumaV(Vector * a, Vector * b, Vector * c) {
+      |                        ^~~~~~
+      |                        vector
+exercises.c:114:36: error: unknown type name ‘Vector’; did you mean ‘vector’?
+  114 | void sumaV(Vector * a, Vector * b, Vector * c) {
+      |                                    ^~~~~~
+      |                                    vector
+exercises.c:125:45: error: unknown type name ‘Vector’; did you mean ‘vector’?
+  125 | void sumaV2(int a1, int a2, int b1, int b2, Vector *c){
+      |                                             ^~~~~~
+      |                                             vector
+test.c: In function ‘test_creaV’:
+test.c:140:5: error: unknown type name ‘Vector’; did you mean ‘vector’?
+  140 |     Vector *v = crearVector(size);
+      |     ^~~~~~
+      |     vector
+test.c:140:17: error: initialization of ‘int *’ from incompatible pointer type ‘vector *’ [-Werror=incompatible-pointer-types]
+  140 |     Vector *v = crearVector(size);
+      |                 ^~~~~~~~~~~
+test.c:144:9: error: request for member ‘capacidad’ in something not a structure or union
+  144 |     if(v->capacidad != size){
+      |         ^~
+test.c:149:13: error: request for member ‘datos’ in something not a structure or union
+  149 |         if(v->datos[i] != 0){
+      |             ^~
+test.c: In function ‘test_asignarObtenerValor’:
+test.c:164:5: error: unknown type name ‘Vector’; did you mean ‘vector’?
+  164 |     Vector *v = (Vector*)malloc(sizeof(Vector));
+      |     ^~~~~~
+      |     vector
+test.c:164:18: error: ‘Vector’ undeclared (first use in this function); did you mean ‘vector’?
+  164 |     Vector *v = (Vector*)malloc(sizeof(Vector));
+      |                  ^~~~~~
+      |                  vector
+test.c:164:18: note: each undeclared identifier is reported only once for each function it appears in
+test.c:164:25: error: expected expression before ‘)’ token
+  164 |     Vector *v = (Vector*)malloc(sizeof(Vector));
+      |                         ^
+test.c:165:6: error: request for member ‘datos’ in something not a structure or union
+  165 |     v->datos = (int *)calloc(3, sizeof(int));
+      |      ^~
+test.c:166:6: error: request for member ‘capacidad’ in something not a structure or union
+  166 |     v->capacidad = 3;
+      |      ^~
+test.c:167:5: error: implicit declaration of function ‘asignarValor’ [-Werror=implicit-function-declaration]
+  167 |     asignarValor(v, 0, a);
+      |     ^~~~~~~~~~~~
+test.c:171:13: error: implicit declaration of function ‘obtenerValor’ [-Werror=implicit-function-declaration]
+  171 |     int val=obtenerValor(v,0);
+      |             ^~~~~~~~~~~~
+test.c: In function ‘test_sumaV’:
+test.c:197:5: error: unknown type name ‘Vector’; did you mean ‘vector’?
+  197 |     Vector *v1 = (Vector*)malloc(sizeof(Vector));
+      |     ^~~~~~
+      |     vector
+test.c:197:19: error: ‘Vector’ undeclared (first use in this function); did you mean ‘vector’?
+  197 |     Vector *v1 = (Vector*)malloc(sizeof(Vector));
+      |                   ^~~~~~
+      |                   vector
+test.c:197:26: error: expected expression before ‘)’ token
+  197 |     Vector *v1 = (Vector*)malloc(sizeof(Vector));
+      |                          ^
+test.c:198:7: error: request for member ‘datos’ in something not a structure or union
+  198 |     v1->datos = (int *)calloc(3, sizeof(int));
+      |       ^~
+test.c:199:7: error: request for member ‘capacidad’ in something not a structure or union
+  199 |     v1->capacidad = 3;
+      |       ^~
+test.c:201:7: error: request for member ‘datos’ in something not a structure or union
+  201 |     v1->datos[0]=a; v1->datos[1]=b; v1->datos[2]=c;
+      |       ^~
+test.c:201:23: error: request for member ‘datos’ in something not a structure or union
+  201 |     v1->datos[0]=a; v1->datos[1]=b; v1->datos[2]=c;
+      |                       ^~
+test.c:201:39: error: request for member ‘datos’ in something not a structure or union
+  201 |     v1->datos[0]=a; v1->datos[1]=b; v1->datos[2]=c;
+      |                                       ^~
+test.c:207:13: error: ‘v2’ undeclared (first use in this function); did you mean ‘v1’?
+  207 |     Vector *v2 = (Vector*)malloc(sizeof(Vector));
+      |             ^~
+      |             v1
+test.c:207:26: error: expected expression before ‘)’ token
+  207 |     Vector *v2 = (Vector*)malloc(sizeof(Vector));
+      |                          ^
+test.c:214:13: error: ‘v3’ undeclared (first use in this function); did you mean ‘v1’?
+  214 |     Vector *v3 = (Vector*)malloc(sizeof(Vector));
+      |             ^~
+      |             v1
+test.c:214:26: error: expected expression before ‘)’ token
+  214 |     Vector *v3 = (Vector*)malloc(sizeof(Vector));
+      |                          ^
+test.c:218:5: error: implicit declaration of function ‘sumaV’ [-Werror=implicit-function-declaration]
+  218 |     sumaV(v1, v2, v3);
+      |     ^~~~~
+test.c: In function ‘test_sumaV2’:
+test.c:232:5: error: unknown type name ‘Vector’; did you mean ‘vector’?
+  232 |     Vector *c = (Vector*)malloc(sizeof(Vector));
+      |     ^~~~~~
+      |     vector
+test.c:232:18: error: ‘Vector’ undeclared (first use in this function); did you mean ‘vector’?
+  232 |     Vector *c = (Vector*)malloc(sizeof(Vector));
+      |                  ^~~~~~
+      |                  vector
+test.c:232:25: error: expected expression before ‘)’ token
+  232 |     Vector *c = (Vector*)malloc(sizeof(Vector));
+      |                         ^
+test.c:233:6: error: request for member ‘datos’ in something not a structure or union
+  233 |     c->datos = (int *)calloc(2, sizeof(int));
+      |      ^~
+test.c:234:6: error: request for member ‘capacidad’ in something not a structure or union
+  234 |     c->capacidad = 2;
+      |      ^~
+test.c:238:5: error: implicit declaration of function ‘sumaV2’ [-Werror=implicit-function-declaration]
+  238 |     sumaV2(a1,a2,b1,b2,c);
+      |     ^~~~~~
+test.c:240:9: error: request for member ‘datos’ in something not a structure or union
+  240 |     if(c->datos[0]!=a1+b1 || c->datos[1]!=a2+b2){
+      |         ^~
+test.c:240:31: error: request for member ‘datos’ in something not a structure or union
+  240 |     if(c->datos[0]!=a1+b1 || c->datos[1]!=a2+b2){
+      |                               ^~
+test.c:241:51: error: request for member ‘datos’ in something not a structure or union
+  241 |         sprintf(msg,"suma incorrecta, c=(%d,%d)",c->datos[0],c->datos[1]);
+      |                                                   ^~
+test.c:241:63: error: request for member ‘datos’ in something not a structure or union
+  241 |         sprintf(msg,"suma incorrecta, c=(%d,%d)",c->datos[0],c->datos[1]);
+      |                                                               ^~
+cc1: all warnings being treated as errors
+Compilation failed
+046f706
