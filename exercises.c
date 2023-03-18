@@ -72,10 +72,10 @@ inicializados en 0 y luego retorna el vector creado.
 typedef struct {
    int *datos; // arreglo dinámico
    int capacidad; // capacidad del arreglo
-} vector;
+} Vector;
 
-vector * crearVector(int n){
-  vector *vectorA = (vector *) malloc(sizeof(vector));
+Vector * crearVector(int n){
+  Vector *vectorA = (Vector *) malloc(sizeof(Vector));
   if (vectorA==NULL) exit(EXIT_FAILURE);
   vectorA->datos=(int *) calloc(n,sizeof(int));
   if (vectorA->datos==NULL) exit(EXIT_FAILURE);

@@ -230,3 +230,21 @@ test.c:241:63: error: request for member ‘datos’ in something not a structur
 cc1: all warnings being treated as errors
 Compilation failed
 046f706
+Sat 18 Mar 2023 09:45:25 PM UTC: 
+ exercises.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+exercises.c: In function ‘arrayMaxMin’:
+exercises.c:28:7: error: left-hand operand of comma expression has no effect [-Werror=unused-value]
+   28 |   *max, *min = a[0];
+      |       ^
+exercises.c:33:15: error: statement with no effect [-Werror=unused-value]
+   33 |     else(a[i] < *min){
+      |         ~~~~~~^~~~~~~
+exercises.c:33:22: error: expected ‘;’ before ‘{’ token
+   33 |     else(a[i] < *min){
+      |                      ^
+      |                      ;
+cc1: all warnings being treated as errors
+Compilation failed
+a05adb3
